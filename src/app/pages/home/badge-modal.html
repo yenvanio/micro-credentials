@@ -1,0 +1,9 @@
+<h1 mat-dialog-title>{{ data.title }}</h1>
+<div mat-dialog-content class="container">
+  <div class="row">Instructor: {{ data.instructor }}</div>
+  <div class="row">Platform: {{ data.platform }}</div>
+  <div class="row">Certificate: <a target="_blank" href="{{ data.file }}">View</a></div>
+</div>
+<div mat-dialog-actions>
+  <button mat-button [mat-dialog-close]="data.animal" cdkFocusInitial>Close</button>
+</div>

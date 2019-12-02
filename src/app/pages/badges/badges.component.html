@@ -1,0 +1,48 @@
+<h4 class="text-center" style="margin-top: 50px">Your Badges</h4>
+<mat-table class="course-table mat-elevation-z8 center" [dataSource]="badges">
+
+  <ng-container matColumnDef="course">
+    <mat-header-cell *matHeaderCellDef>Course</mat-header-cell>
+    <mat-cell *matCellDef="let course">{{ course.title }}</mat-cell>
+  </ng-container>
+
+  <ng-container matColumnDef="platform">
+    <mat-header-cell *matHeaderCellDef>Platform</mat-header-cell>
+    <mat-cell class="description-cell" *matCellDef="let course">{{ course.platform }}</mat-cell>
+  </ng-container>
+
+  <ng-container matColumnDef="date">
+    <mat-header-cell *matHeaderCellDef>Date</mat-header-cell>
+    <mat-cell class="duration-cell" *matCellDef="let course">{{ course.date.seconds * 1000 |  date: 'yyyy/MM/dd' }}
+    </mat-cell>
+  </ng-container>
+
+  <ng-container matColumnDef="file">
+    <mat-header-cell *matHeaderCellDef>Certification</mat-header-cell>
+    <mat-cell class="duration-cell" *matCellDef="let course">
+        <a target="_blank" [href]="course.file"><fa name="fas fa-file"></fa></a>
+    </mat-cell>
+  </ng-container>
+
+  <ng-container matColumnDef="status">
+    <mat-header-cell *matHeaderCellDef>Status</mat-header-cell>
+    <mat-cell class="duration-cell" *matCellDef="let course">
+      <a *ngIf="course.status.verified.code == 0" class="noStyle times"><fa name="fas fa-exclamation-triangle"></fa></a>
+      <a *ngIf="course.status.verified.code == 1" class="noStyle thumbs"><fa name="fas fa-thumbs-up"></fa></a>
+      <span *ngIf="course.status.verified.code == 1" class="endorseBadge" matBadge="{{ course.status.verified.endorsements }}"></span>
+      <a *ngIf="course.status.verified.code == 2" class="noStyle checks"><fa name="fas fa-check"></fa></a>
+    </mat-cell>
+  </ng-container>
+
+  <ng-container matColumnDef="delete">
+      <mat-header-cell *matHeaderCellDef></mat-header-cell>
+      <mat-cell class="duration-cell" *matCellDef="let course">
+          <a class="minus" (click)="deleteBadge(course.id)"><fa name="fas fa-minus-circle"></fa></a>
+      </mat-cell>
+    </ng-container>
+
+  <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+
+  <mat-row *matRowDef="let row; columns: displayedColumns"></mat-row>
+
+</mat-table>

@@ -1,0 +1,76 @@
+.course-table {
+  margin-top: 100px;
+  text-align: center !important;
+  width: 100%;
+
+  mat-header-cell {
+      display: inline;
+      min-height: auto;
+  }
+  
+  mat-cell {
+      display: inline;
+      text-align: center;
+      min-height: auto;
+  }
+
+}
+
+.mat-elevation-z8 {
+    box-shadow: 0 2px 1px -1px rgba(0,0,0,.2), 0 1px 1px 0 rgba(0,0,0,.14), 0 1px 3px 0 rgba(0,0,0,.12);
+  }
+
+
+a {
+  color: #607D8B;
+  font-size: 25px; // your font-size in px, em or %;
+  text-shadow: 2px 2px #f5f5f5;
+
+  &:hover {
+    color: #455A64
+  }
+}
+
+.noStyle {
+    cursor: default;
+}
+
+.endorseBadge {
+    span {
+        left: 0;
+        margin-top: 10px;
+    }
+}
+
+a.times {
+    color: #FFC107;
+
+    &:hover {
+        color: #FFA000;
+    }
+}
+
+a.minus {
+    cursor: pointer;
+    color: #F44336;
+
+    &:hover {
+        color: #D32F2F;
+    }
+}
+
+a.thumbs {
+    color: #3F51B5;
+
+    &:hover {
+        color: #303F9F;
+    }
+}
+
+a.checks {
+    color: #4CAF50;
+
+    &:hover {
+        color: #388E3C;
+    }
+}

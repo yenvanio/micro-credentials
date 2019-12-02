@@ -1,0 +1,39 @@
+<nav class="navbar is-dark">
+
+  <div class="navbar-brand">
+    <a class="navbar-item">
+      <img [src]="authService.userProfilePicture" [attr.login]="authService.isLoggedIn" class="photoURL">
+      <p *ngIf="authService.isLoggedIn" class="display-name">{{ authService.userName }}</p>  
+    </a>
+  </div>
+
+  <div class="navbar-menu">
+    <div class="navbar-start">
+      <div *ngIf="authService.isLoggedIn">
+        <a class="navbar-item" routerLink="home">Home</a>
+        <a class="navbar-item" routerLink="badges">Badges</a>
+        <a class="navbar-item" routerLink="profile/{{authService.uid}}">Profile</a>
+        <a class="navbar-item" routerLink="">
+          <google-button text="Sign Out" (buttonClick)='handleSignOut($event)'></google-button>
+        </a>
+      </div>
+      <div *ngIf="!authService.isLoggedIn">
+        <google-button text="Sign in with Google" (buttonClick)='handleSignIn($event)'></google-button>
+      </div>
+    </div>
+  </div>
+</nav>
+
+<div class="container">
+    <router-outlet></router-outlet>
+</div>
+
+<footer class="footer">
+  <div class="container">
+    <div class="content has-text-centered">
+      <p>
+
+      </p>
+    </div>
+  </div>
+</footer>
